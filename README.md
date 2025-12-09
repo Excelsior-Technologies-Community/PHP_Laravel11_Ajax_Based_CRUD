@@ -1,22 +1,22 @@
-# 🚀 Laravel 11 AJAX CRUD Using Yajra DataTables  
+# PHP_Laravel11_Ajax_Based_CRUD 
 A modern and interactive CRUD system built using **Laravel 11**, **AJAX**, **Bootstrap 5**, and **Yajra DataTables** — with full create, read, update, delete operations performed **without page reload**.
 
 ---
 
-# 🎯 Features
+#  Features
 
-- ⚡ AJAX-based Create, Read, Update & Delete  
-- 📊 Yajra DataTables (Server-side processing)  
-- 🎨 Bootstrap 5 UI  
-- 🧩 Modal-based forms   
-- 🔄 RESTful Laravel Controller  
-- 🔐 Laravel validation  
-- 💾 MySQL / SQLite compatible  
-- 🚀 Super-fast interactions (no page reload)
+-  AJAX-based Create, Read, Update & Delete  
+-  Yajra DataTables (Server-side processing)  
+-  Bootstrap 5 UI  
+-  Modal-based forms   
+-  RESTful Laravel Controller  
+-  Laravel validation  
+-  MySQL / SQLite compatible  
+-  Super-fast interactions (no page reload)
 
 ---
 
-# 📁 Project Folder Structure
+#  Project Folder Structure
 
 ```
 CRUD_USING_AJAX_DATATABLES/
@@ -71,7 +71,7 @@ CRUD_USING_AJAX_DATATABLES/
 
 ---
 
-# 📚 Table of Contents
+#  Table of Contents
 
 - [Features](#-features)  
 - [Project Folder Structure](#-project-folder-structure)  
@@ -86,7 +86,7 @@ CRUD_USING_AJAX_DATATABLES/
 
 ---
 
-# ⚙️ Installation
+#  Installation
 
 ```bash
 composer create-project laravel/laravel TestAjax "11.*"
@@ -100,7 +100,7 @@ composer require yajra/laravel-datatables-oracle
 
 ---
 
-# 🔧 Environment Setup
+#  Environment Setup
 
 Update `.env`:
 
@@ -115,7 +115,7 @@ DB_PASSWORD=
 
 ---
 
-# 🗄️ Migration
+#  Migration
 
 Create migration:
 
@@ -142,7 +142,7 @@ php artisan migrate
 
 ---
 
-# 🛣️ Routes
+#  Routes
 
 In `routes/web.php`:
 
@@ -154,7 +154,7 @@ Route::resource('products', ProductController::class);
 
 ---
 
-# 🎮 Controller
+#  Controller
 
 A complete AJAX-compatible CRUD controller using Yajra DataTables.
 
@@ -183,7 +183,7 @@ public function index(Request $request)
 
 ---
 
-# 🧬 Model
+#  Model
 
 `app/Models/Product.php`
 
@@ -196,7 +196,7 @@ class Product extends Model
 
 ---
 
-# 🖼️ Blade View
+#  Blade View
 
 `resources/views/products.blade.php`  
 Contains:  
@@ -210,7 +210,7 @@ Contains:
 
 ---
 
-# ▶️ Run Application
+#  Run Application
 
 ```bash
 php artisan serve
@@ -224,7 +224,7 @@ http://localhost:8000/products
 
 ---
 
-# 🎉 Done!
+#  Done!
 
 Your **Laravel 11 AJAX CRUD** system is ready — clean, fast, and fully interactive.
 
