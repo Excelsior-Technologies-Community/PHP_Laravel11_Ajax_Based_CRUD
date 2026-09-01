@@ -15,6 +15,6 @@ class Product extends Model
      * @return response()
      */
     protected $fillable = [
-        'name', 'detail'
+        'name', 'detail', 'image', 'file', 'category', 'status', 'brand', 'expiry_date', 'tags'
     ];
 }
