@@ -5,109 +5,59 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta
+        name="csrf-token"
+        content="{{ csrf_token() }}"
+    >
 
-    <title>Laravel 11 Product Management</title>
+    <title>Product Management</title>
 
-
-    <!-- =========================================================
-         BOOTSTRAP
-    ========================================================== -->
-
+    {{-- Bootstrap --}}
     <link
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"
     >
 
-
-    <!-- =========================================================
-         DATATABLE
-    ========================================================== -->
-
+    {{-- Font Awesome --}}
     <link
-        href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         rel="stylesheet"
     >
 
-
-    <!-- =========================================================
-         FONT AWESOME
-    ========================================================== -->
-
+    {{-- DataTables --}}
     <link
+        href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css"
         rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     >
 
-
-    <!-- =========================================================
-         SWEETALERT
-    ========================================================== -->
-
+    {{-- Toastr --}}
     <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
-    >
-
-
-    <!-- =========================================================
-         TOASTR
-    ========================================================== -->
-
-    <link
-        rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+        rel="stylesheet"
     >
 
-
-    <!-- =========================================================
-         TAGIFY
-    ========================================================== -->
-
+    {{-- SweetAlert --}}
     <link
+        href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
         rel="stylesheet"
+    >
+
+    {{-- Bootstrap Datepicker --}}
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css"
+        rel="stylesheet"
+    >
+
+    {{-- Tagify --}}
+    <link
         href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css"
-    >
-
-
-    <!-- =========================================================
-         DATE PICKER
-    ========================================================== -->
-
-    <link
         rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
     >
-
-
-    <!-- =========================================================
-         JAVASCRIPT LIBRARIES
-    ========================================================== -->
-
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-
-    <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-
-    <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-
-    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
-
-
-    <!-- =========================================================
-         CUSTOM CSS
-    ========================================================== -->
 
     <style>
 
@@ -115,66 +65,57 @@
 
             --primary: #6366f1;
             --primary-dark: #4f46e5;
-
-            --secondary: #8b5cf6;
-
-            --success: #10b981;
-            --danger: #ef4444;
-            --warning: #f59e0b;
-            --info: #06b6d4;
-
-            --dark: #111827;
-
-            --muted: #6b7280;
-
             --border: #e5e7eb;
-
-            --bg: #f5f7fb;
-
-            --card: #ffffff;
+            --text: #111827;
+            --muted: #64748b;
 
         }
 
 
         * {
-            box-sizing: border-box;
+
+            box-sizing:
+                border-box;
+
         }
 
 
         body {
 
-            background: var(--bg);
-
-            color: #1f2937;
+            margin:
+                0;
 
             font-family:
                 Inter,
+                system-ui,
                 -apple-system,
                 BlinkMacSystemFont,
                 "Segoe UI",
-                Roboto,
-                Helvetica,
-                Arial,
                 sans-serif;
 
-            transition:
-                background .3s ease,
-                color .3s ease;
+            background:
+                #f5f7fb;
+
+            color:
+                var(--text);
 
         }
 
 
         /* =========================================================
-           DASHBOARD WRAPPER
+           DASHBOARD
         ========================================================== */
 
         .dashboard-wrapper {
 
-            max-width: 1600px;
+            padding:
+                30px;
 
-            margin: 0 auto;
+            max-width:
+                1800px;
 
-            padding: 30px;
+            margin:
+                auto;
 
         }
 
@@ -185,122 +126,67 @@
 
         .dashboard-header {
 
-            position: relative;
-
-            overflow: hidden;
-
-            border-radius: 22px;
-
-            padding: 30px;
-
-            margin-bottom: 25px;
-
-            color: #fff;
-
             background:
-                radial-gradient(
-                    circle at 90% 20%,
-                    rgba(255,255,255,.18),
-                    transparent 25%
-                ),
-                radial-gradient(
-                    circle at 10% 90%,
-                    rgba(255,255,255,.12),
-                    transparent 30%
-                ),
                 linear-gradient(
                     135deg,
                     #4f46e5,
-                    #7c3aed 55%,
-                    #9333ea
+                    #7c3aed
                 );
 
+            border-radius:
+                20px;
+
+            padding:
+                28px;
+
+            color:
+                #fff;
+
+            margin-bottom:
+                24px;
+
             box-shadow:
-                0 15px 40px rgba(79,70,229,.22);
-
-        }
-
-
-        .dashboard-header::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 220px;
-            height: 220px;
-
-            right: -70px;
-            top: -100px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(255,255,255,.08);
-
-        }
-
-
-        .dashboard-header::after {
-
-            content: "";
-
-            position: absolute;
-
-            width: 160px;
-            height: 160px;
-
-            left: 40%;
-            bottom: -120px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(255,255,255,.07);
-
-        }
-
-
-        .header-content {
-
-            position: relative;
-
-            z-index: 2;
+                0 15px 40px
+                rgba(79,70,229,.18);
 
         }
 
 
         .header-title {
 
-            font-size: 30px;
+            margin:
+                0;
 
-            font-weight: 800;
+            font-size:
+                28px;
 
-            margin: 0;
-
-            letter-spacing: -.5px;
+            font-weight:
+                800;
 
         }
 
 
         .header-subtitle {
 
-            margin: 8px 0 0;
+            margin:
+                6px 0 0;
 
-            opacity: .85;
+            color:
+                rgba(255,255,255,.8);
 
-            font-size: 14px;
+            font-size:
+                14px;
 
         }
 
 
         .header-actions {
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
-
-            gap: 10px;
+            align-items:
+                center;
 
         }
 
@@ -308,21 +194,26 @@
         .header-btn {
 
             border:
-                1px solid rgba(255,255,255,.25);
+                1px solid
+                rgba(255,255,255,.25);
 
             background:
                 rgba(255,255,255,.12);
 
-            color: #fff;
+            color:
+                #fff;
 
-            backdrop-filter:
-                blur(10px);
+            border-radius:
+                10px;
 
-            border-radius: 10px;
+            padding:
+                10px 15px;
 
-            padding: 9px 14px;
+            font-size:
+                13px;
 
-            transition: .2s ease;
+            transition:
+                .2s ease;
 
         }
 
@@ -332,10 +223,8 @@
             background:
                 rgba(255,255,255,.2);
 
-            color: #fff;
-
-            transform:
-                translateY(-1px);
+            color:
+                #fff;
 
         }
 
@@ -346,14 +235,17 @@
 
         .stats-grid {
 
-            display: grid;
+            display:
+                grid;
 
             grid-template-columns:
                 repeat(4, 1fr);
 
-            gap: 18px;
+            gap:
+                18px;
 
-            margin-bottom: 25px;
+            margin-bottom:
+                24px;
 
         }
 
@@ -361,131 +253,125 @@
         .stat-card {
 
             background:
-                var(--card);
+                #fff;
 
             border:
-                1px solid var(--border);
+                1px solid
+                var(--border);
 
-            border-radius: 18px;
+            border-radius:
+                16px;
 
-            padding: 20px;
-
-            position: relative;
-
-            overflow: hidden;
-
-            transition: .25s ease;
+            padding:
+                20px;
 
             box-shadow:
-                0 5px 18px rgba(15,23,42,.04);
-
-        }
-
-
-        .stat-card:hover {
-
-            transform:
-                translateY(-4px);
-
-            box-shadow:
-                0 12px 30px rgba(15,23,42,.09);
-
-        }
-
-
-        .stat-card::after {
-
-            content: "";
-
-            position: absolute;
-
-            width: 100px;
-            height: 100px;
-
-            right: -45px;
-            bottom: -50px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(99,102,241,.06);
+                0 5px 18px
+                rgba(15,23,42,.04);
 
         }
 
 
         .stat-icon {
 
-            width: 46px;
-            height: 46px;
+            width:
+                44px;
 
-            border-radius: 13px;
+            height:
+                44px;
 
-            display: flex;
+            border-radius:
+                12px;
 
-            align-items: center;
-            justify-content: center;
+            display:
+                flex;
 
-            font-size: 18px;
+            align-items:
+                center;
 
-            margin-bottom: 15px;
+            justify-content:
+                center;
+
+            margin-bottom:
+                14px;
 
         }
 
 
         .stat-icon.primary {
 
-            background: #eef2ff;
+            background:
+                #eef2ff;
 
-            color: #4f46e5;
+            color:
+                #4f46e5;
 
         }
 
 
         .stat-icon.success {
 
-            background: #ecfdf5;
+            background:
+                #ecfdf5;
 
-            color: #059669;
+            color:
+                #059669;
 
         }
 
 
         .stat-icon.warning {
 
-            background: #fffbeb;
+            background:
+                #fffbeb;
 
-            color: #d97706;
+            color:
+                #d97706;
 
         }
 
 
         .stat-icon.danger {
 
-            background: #fef2f2;
+            background:
+                #fef2f2;
 
-            color: #dc2626;
+            color:
+                #dc2626;
 
         }
 
 
         .stat-label {
 
-            font-size: 13px;
+            color:
+                #64748b;
 
-            color: var(--muted);
+            font-size:
+                12px;
 
-            margin-bottom: 5px;
+            font-weight:
+                600;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .4px;
 
         }
 
 
         .stat-value {
 
-            font-size: 27px;
+            font-size:
+                26px;
 
-            font-weight: 800;
+            font-weight:
+                800;
 
-            color: #111827;
+            margin-top:
+                3px;
 
         }
 
@@ -497,169 +383,85 @@
         .main-card {
 
             background:
-                var(--card);
+                #fff;
 
             border:
-                1px solid var(--border);
+                1px solid
+                var(--border);
 
-            border-radius: 20px;
+            border-radius:
+                18px;
+
+            overflow:
+                hidden;
 
             box-shadow:
-                0 8px 30px rgba(15,23,42,.05);
-
-            overflow: hidden;
+                0 8px 30px
+                rgba(15,23,42,.05);
 
         }
 
 
+        /* =========================================================
+           TOOLBAR
+        ========================================================== */
+
         .card-toolbar {
 
-            padding: 22px 24px;
+            padding:
+                22px;
 
             border-bottom:
-                1px solid var(--border);
+                1px solid
+                var(--border);
 
         }
 
 
         .toolbar-title {
 
-            font-size: 18px;
+            font-size:
+                19px;
 
-            font-weight: 750;
+            font-weight:
+                800;
 
-            margin: 0;
+            margin:
+                0;
 
         }
 
 
         .toolbar-subtitle {
 
-            font-size: 13px;
+            color:
+                #64748b;
 
-            color: var(--muted);
+            font-size:
+                13px;
 
-            margin-top: 4px;
-
-        }
-
-
-        /* =========================================================
-           SEARCH
-        ========================================================== */
-
-        .search-wrapper {
-
-            position: relative;
+            margin-top:
+                4px;
 
         }
 
-
-        .search-wrapper i {
-
-            position: absolute;
-
-            left: 14px;
-
-            top: 50%;
-
-            transform:
-                translateY(-50%);
-
-            color: #9ca3af;
-
-            z-index: 2;
-
-        }
-
-
-        .modern-input {
-
-            height: 42px;
-
-            border:
-                1px solid #dfe3eb;
-
-            border-radius: 10px;
-
-            padding-left: 40px;
-
-            font-size: 13px;
-
-            transition: .2s ease;
-
-            background: #fff;
-
-        }
-
-
-        .modern-input:focus {
-
-            border-color:
-                var(--primary);
-
-            box-shadow:
-                0 0 0 3px
-                rgba(99,102,241,.1);
-
-        }
-
-
-        .modern-select {
-
-            height: 42px;
-
-            border:
-                1px solid #dfe3eb;
-
-            border-radius: 10px;
-
-            font-size: 13px;
-
-            transition: .2s ease;
-
-            background-color: #fff;
-
-        }
-
-
-        .modern-select:focus {
-
-            border-color:
-                var(--primary);
-
-            box-shadow:
-                0 0 0 3px
-                rgba(99,102,241,.1);
-
-        }
-
-
-        /* =========================================================
-           BUTTONS
-        ========================================================== */
 
         .btn-modern {
 
-            border-radius: 10px;
+            border:
+                none;
 
-            font-size: 13px;
+            border-radius:
+                9px;
 
-            font-weight: 600;
+            padding:
+                9px 14px;
 
-            padding: 9px 14px;
+            font-size:
+                13px;
 
-            border: none;
-
-            transition: .2s ease;
-
-        }
-
-
-        .btn-modern:hover {
-
-            transform:
-                translateY(-1px);
+            font-weight:
+                600;
 
         }
 
@@ -673,22 +475,19 @@
                     #7c3aed
                 );
 
-            color: #fff;
-
-            box-shadow:
-                0 5px 15px
-                rgba(99,102,241,.2);
+            color:
+                #fff;
 
         }
 
 
         .btn-create:hover {
 
-            color: #fff;
+            color:
+                #fff;
 
-            box-shadow:
-                0 8px 20px
-                rgba(99,102,241,.3);
+            transform:
+                translateY(-1px);
 
         }
 
@@ -696,7 +495,7 @@
         .btn-bulk {
 
             background:
-                #fee2e2;
+                #fef2f2;
 
             color:
                 #dc2626;
@@ -706,18 +505,19 @@
 
         .btn-bulk:disabled {
 
-            opacity: .5;
+            opacity:
+                .5;
 
         }
 
 
         .export-group {
 
-            display: flex;
+            display:
+                inline-flex;
 
-            gap: 6px;
-
-            flex-wrap: wrap;
+            gap:
+                5px;
 
         }
 
@@ -725,19 +525,17 @@
         .export-btn {
 
             border:
-                1px solid var(--border);
+                1px solid
+                #e5e7eb;
 
             background:
                 #fff;
 
-            color:
-                #4b5563;
-
             border-radius:
-                9px;
+                8px;
 
             padding:
-                8px 12px;
+                8px 11px;
 
             font-size:
                 12px;
@@ -745,8 +543,11 @@
             font-weight:
                 600;
 
+            color:
+                #374151;
+
             transition:
-                .2s;
+                .2s ease;
 
         }
 
@@ -756,11 +557,89 @@
             background:
                 #f8fafc;
 
-            border-color:
-                #c7d2fe;
+            transform:
+                translateY(-1px);
+
+        }
+
+
+        /* =========================================================
+           SEARCH
+        ========================================================== */
+
+        .search-wrapper {
+
+            position:
+                relative;
+
+        }
+
+
+        .search-wrapper > i {
+
+            position:
+                absolute;
+
+            left:
+                13px;
+
+            top:
+                50%;
+
+            transform:
+                translateY(-50%);
 
             color:
+                #94a3b8;
+
+            z-index:
+                2;
+
+        }
+
+
+        .modern-input {
+
+            border:
+                1px solid
+                #dfe3eb;
+
+            border-radius:
+                9px;
+
+            min-height:
+                42px;
+
+            padding-left:
+                38px;
+
+        }
+
+
+        .modern-select {
+
+            border:
+                1px solid
+                #dfe3eb;
+
+            border-radius:
+                9px;
+
+            min-height:
+                42px;
+
+        }
+
+
+        .modern-input:focus,
+        .modern-select:focus {
+
+            border-color:
                 var(--primary);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(99,102,241,.1);
 
         }
 
@@ -771,7 +650,8 @@
 
         .table-wrapper {
 
-            overflow-x: auto;
+            overflow-x:
+                auto;
 
         }
 
@@ -802,7 +682,8 @@
                 none !important;
 
             border-bottom:
-                1px solid var(--border) !important;
+                1px solid
+                var(--border) !important;
 
             font-size:
                 11px;
@@ -883,7 +764,8 @@
                 cover;
 
             border:
-                1px solid #e5e7eb;
+                1px solid
+                #e5e7eb;
 
             background:
                 #f8fafc;
@@ -945,7 +827,8 @@
                 .2s ease;
 
             border:
-                1px dashed transparent;
+                1px dashed
+                transparent;
 
             font-weight:
                 600;
@@ -1057,7 +940,8 @@
                 center;
 
             border:
-                1px solid #e5e7eb;
+                1px solid
+                #e5e7eb;
 
             background:
                 #fff;
@@ -1202,7 +1086,8 @@
                 12px 0;
 
             border-bottom:
-                1px solid #eef0f4;
+                1px solid
+                #eef0f4;
 
         }
 
@@ -1247,7 +1132,8 @@
                 12px;
 
             border:
-                1px solid #e5e7eb;
+                1px solid
+                #e5e7eb;
 
             padding:
                 4px;
@@ -1277,13 +1163,17 @@
                 12px;
 
             border:
-                1px solid #e5e7eb;
+                1px solid
+                #e5e7eb;
 
             padding:
                 4px;
 
             object-fit:
                 cover;
+
+            display:
+                none;
 
         }
 
@@ -1392,7 +1282,8 @@
         input {
 
             border:
-                1px solid #dfe3eb;
+                1px solid
+                #dfe3eb;
 
             border-radius:
                 8px;
@@ -1783,7 +1674,6 @@
 
 <body>
 
-
 <div class="dashboard-wrapper">
 
 
@@ -1868,8 +1758,6 @@
     <div class="stats-grid">
 
 
-        <!-- TOTAL -->
-
         <div class="stat-card">
 
             <div class="stat-icon primary">
@@ -1891,8 +1779,6 @@
 
         </div>
 
-
-        <!-- ACTIVE -->
 
         <div class="stat-card">
 
@@ -1916,8 +1802,6 @@
         </div>
 
 
-        <!-- INACTIVE -->
-
         <div class="stat-card">
 
             <div class="stat-icon danger">
@@ -1939,8 +1823,6 @@
 
         </div>
 
-
-        <!-- CATEGORIES -->
 
         <div class="stat-card">
 
@@ -1973,10 +1855,6 @@
 
     <div class="main-card">
 
-
-        <!-- =====================================================
-             TOOLBAR
-        ====================================================== -->
 
         <div class="card-toolbar">
 
@@ -2016,8 +1894,6 @@
                     >
 
 
-                        <!-- CREATE -->
-
                         <button
                             class="btn btn-modern btn-create"
                             id="createNewProduct"
@@ -2029,8 +1905,6 @@
 
                         </button>
 
-
-                        <!-- BULK DELETE -->
 
                         <button
                             class="btn btn-modern btn-bulk"
@@ -2045,8 +1919,6 @@
                         </button>
 
 
-                        <!-- EXPORT -->
-
                         <div class="export-group">
 
 
@@ -2055,9 +1927,7 @@
                                 id="exportCsv"
                             >
 
-                                <i
-                                    class="fa-solid fa-file-csv me-1"
-                                ></i>
+                                <i class="fa-solid fa-file-csv me-1"></i>
 
                                 CSV
 
@@ -2069,9 +1939,7 @@
                                 id="exportExcel"
                             >
 
-                                <i
-                                    class="fa-solid fa-file-excel me-1"
-                                ></i>
+                                <i class="fa-solid fa-file-excel me-1"></i>
 
                                 Excel
 
@@ -2083,9 +1951,7 @@
                                 id="exportPdf"
                             >
 
-                                <i
-                                    class="fa-solid fa-file-pdf me-1"
-                                ></i>
+                                <i class="fa-solid fa-file-pdf me-1"></i>
 
                                 PDF
 
@@ -2097,9 +1963,7 @@
                                 id="printTable"
                             >
 
-                                <i
-                                    class="fa-solid fa-print me-1"
-                                ></i>
+                                <i class="fa-solid fa-print me-1"></i>
 
                                 Print
 
@@ -2115,22 +1979,16 @@
             </div>
 
 
-            <!-- =================================================
-                 SEARCH / FILTER
-            ================================================== -->
+            <!-- SEARCH / FILTER -->
 
             <div class="row g-2 mt-3">
 
-
-                <!-- SEARCH -->
 
                 <div class="col-lg-6">
 
                     <div class="search-wrapper">
 
-                        <i
-                            class="fa-solid fa-magnifying-glass"
-                        ></i>
+                        <i class="fa-solid fa-magnifying-glass"></i>
 
                         <input
                             type="text"
@@ -2143,8 +2001,6 @@
 
                 </div>
 
-
-                <!-- STATUS -->
 
                 <div class="col-lg-3 col-md-6">
 
@@ -2170,8 +2026,6 @@
                 </div>
 
 
-                <!-- CATEGORY -->
-
                 <div class="col-lg-3 col-md-6">
 
                     <select
@@ -2195,6 +2049,10 @@
                             Food
                         </option>
 
+                        <option value="Other">
+                            Other
+                        </option>
+
                     </select>
 
                 </div>
@@ -2205,9 +2063,7 @@
         </div>
 
 
-        <!-- =====================================================
-             SKELETON
-        ====================================================== -->
+        <!-- SKELETON -->
 
         <div
             id="tableSkeleton"
@@ -2242,12 +2098,9 @@
 
                     <tr>
 
+                        {{-- IMPORTANT: Sequential number --}}
                         <th>
                             #
-                        </th>
-
-                        <th>
-                            ID
                         </th>
 
                         <th>
@@ -2374,10 +2227,6 @@
                     >
 
 
-                    <!-- =================================================
-                         NAME / CATEGORY
-                    ================================================== -->
-
                     <div class="row">
 
 
@@ -2437,6 +2286,10 @@
                                         Food
                                     </option>
 
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
                                 </select>
 
                             </div>
@@ -2446,10 +2299,6 @@
 
                     </div>
 
-
-                    <!-- =================================================
-                         STATUS / BRAND
-                    ================================================== -->
 
                     <div class="row">
 
@@ -2511,10 +2360,6 @@
                     </div>
 
 
-                    <!-- =================================================
-                         DETAIL
-                    ================================================== -->
-
                     <div class="form-group mb-3">
 
                         <label>
@@ -2534,10 +2379,6 @@
 
                     </div>
 
-
-                    <!-- =================================================
-                         IMAGE / FILE
-                    ================================================== -->
 
                     <div class="row">
 
@@ -2604,10 +2445,6 @@
                     </div>
 
 
-                    <!-- =================================================
-                         EXPIRY / TAGS
-                    ================================================== -->
-
                     <div class="row">
 
 
@@ -2635,9 +2472,7 @@
 
                                     <span class="input-group-text">
 
-                                        <i
-                                            class="fa fa-calendar"
-                                        ></i>
+                                        <i class="fa fa-calendar"></i>
 
                                     </span>
 
@@ -2661,7 +2496,6 @@
                                     id="tags"
                                     name="tags"
                                     class="form-control"
-                                    value=""
                                     placeholder="Add product tags"
                                 >
 
@@ -2672,10 +2506,6 @@
 
                     </div>
 
-
-                    <!-- =================================================
-                         SAVE
-                    ================================================== -->
 
                     <div class="d-flex justify-content-end gap-2 mt-3">
 
@@ -2736,9 +2566,7 @@
 
                     <h4 class="modal-title mb-1">
 
-                        <i
-                            class="fa-regular fa-eye me-2"
-                        ></i>
+                        <i class="fa-regular fa-eye me-2"></i>
 
                         Product Details
 
@@ -2765,8 +2593,6 @@
 
                 <div class="row">
 
-
-                    <!-- IMAGE -->
 
                     <div class="col-md-4 text-center mb-4">
 
@@ -2802,8 +2628,6 @@
 
                     </div>
 
-
-                    <!-- DETAILS -->
 
                     <div class="col-md-8">
 
@@ -2892,8 +2716,6 @@
                 </div>
 
 
-                <!-- DETAIL -->
-
                 <div class="product-detail-item">
 
                     <div class="product-detail-label">
@@ -2906,8 +2728,6 @@
 
                 </div>
 
-
-                <!-- FILE -->
 
                 <div class="product-detail-item">
 
@@ -2937,6 +2757,30 @@
     </div>
 
 </div>
+
+
+
+{{-- =============================================================
+     JAVASCRIPT LIBRARIES
+============================================================== --}}
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
 
 
 
@@ -3002,9 +2846,11 @@ $(function () {
 
     toastr.options = {
 
-        closeButton: true,
+        closeButton:
+            true,
 
-        progressBar: true,
+        progressBar:
+            true,
 
         positionClass:
             "toast-top-right"
@@ -3016,23 +2862,35 @@ $(function () {
        TAGIFY
     ========================================================== */
 
-    var tagify =
-        new Tagify(
-            document.querySelector('#tags'),
-            {
+    var tagInput =
+        document.querySelector('#tags');
 
-                whitelist: [],
+    var tagify = null;
 
-                dropdown: {
 
-                    enabled: 1,
+    if (tagInput) {
 
-                    maxItems: 20
+        tagify =
+            new Tagify(
+                tagInput,
+                {
+
+                    whitelist: [],
+
+                    dropdown: {
+
+                        enabled:
+                            1,
+
+                        maxItems:
+                            20
+
+                    }
 
                 }
+            );
 
-            }
-        );
+    }
 
 
     /* =========================================================
@@ -3061,7 +2919,8 @@ $(function () {
 
 
     if (
-        typeof ClassicEditor !== 'undefined'
+        typeof ClassicEditor !== 'undefined' &&
+        document.querySelector('#detail')
     ) {
 
         ClassicEditor
@@ -3112,7 +2971,10 @@ $(function () {
 
     /* =========================================================
        DATATABLE
-    ========================================================== */
+       
+       IMPORTANT:
+       DT_RowIndex gives 1,2,3,4...
+       ========================================================== */
 
     var table =
         $('.data-table').DataTable({
@@ -3144,97 +3006,243 @@ $(function () {
 
             },
 
+
             columns: [
 
-                {
-                    data: 'no',
-                    name: 'no',
-                    orderable: false,
-                    searchable: false
-                },
+                /* =================================================
+                   SEQUENTIAL NUMBER
+                   ================================================= */
 
                 {
-                    data: 'id',
-                    name: 'id'
+                    data:
+                        'DT_RowIndex',
+
+                    name:
+                        'DT_RowIndex',
+
+                    title:
+                        '#',
+
+                    orderable:
+                        false,
+
+                    searchable:
+                        false
+
                 },
 
-                {
-                    data: 'image',
-                    name: 'image',
-                    orderable: false,
-                    searchable: false
-                },
+
+                /* =================================================
+                   PRODUCT IMAGE
+                   ================================================= */
 
                 {
-                    data: 'name',
-                    name: 'name'
+                    data:
+                        'image',
+
+                    name:
+                        'image',
+
+                    orderable:
+                        false,
+
+                    searchable:
+                        false
+
                 },
 
-                {
-                    data: 'detail',
-                    name: 'detail'
-                },
+
+                /* =================================================
+                   NAME
+                   ================================================= */
 
                 {
-                    data: 'category',
-                    name: 'category'
+                    data:
+                        'name',
+
+                    name:
+                        'name'
+
                 },
 
-                {
-                    data: 'status',
-                    name: 'status'
-                },
+
+                /* =================================================
+                   DETAIL
+                   ================================================= */
 
                 {
-                    data: 'brand',
-                    name: 'brand'
+                    data:
+                        'detail',
+
+                    name:
+                        'detail'
+
                 },
 
-                {
-                    data: 'expiry_date',
-                    name: 'expiry_date'
-                },
+
+                /* =================================================
+                   CATEGORY
+                   ================================================= */
 
                 {
-                    data: 'tags',
-                    name: 'tags',
-                    orderable: false,
-                    searchable: false
+                    data:
+                        'category',
+
+                    name:
+                        'category'
+
                 },
 
-                {
-                    data: 'file',
-                    name: 'file',
-                    orderable: false,
-                    searchable: false
-                },
+
+                /* =================================================
+                   STATUS
+                   ================================================= */
 
                 {
-                    data: 'action',
-                    name: 'action',
-                    orderable: false,
-                    searchable: false
+                    data:
+                        'status',
+
+                    name:
+                        'status',
+
+                    orderable:
+                        false
+
+                },
+
+
+                /* =================================================
+                   BRAND
+                   ================================================= */
+
+                {
+                    data:
+                        'brand',
+
+                    name:
+                        'brand'
+
+                },
+
+
+                /* =================================================
+                   EXPIRY
+                   ================================================= */
+
+                {
+                    data:
+                        'expiry_date',
+
+                    name:
+                        'expiry_date'
+
+                },
+
+
+                /* =================================================
+                   TAGS
+                   ================================================= */
+
+                {
+                    data:
+                        'tags',
+
+                    name:
+                        'tags',
+
+                    orderable:
+                        false,
+
+                    searchable:
+                        false
+
+                },
+
+
+                /* =================================================
+                   FILE
+                   ================================================= */
+
+                {
+                    data:
+                        'file',
+
+                    name:
+                        'file',
+
+                    orderable:
+                        false,
+
+                    searchable:
+                        false
+
+                },
+
+
+                /* =================================================
+                   ACTIONS
+                   
+                   IMPORTANT:
+                   Controller must use addColumn('actions')
+                   ================================================= */
+
+                {
+                    data:
+                        'actions',
+
+                    name:
+                        'actions',
+
+                    orderable:
+                        false,
+
+                    searchable:
+                        false
+
                 }
 
             ],
 
+
+            /* =====================================================
+               DEFAULT SORT
+               
+               0 = #
+               1 = Product
+               2 = Name
+               ====================================================== */
+
             order: [
-                [3, 'asc']
+
+                [2, 'asc']
+
             ],
+
 
             pageLength:
                 10,
 
+
             lengthMenu: [
+
                 [10, 25, 50, 100, -1],
+
                 [10, 25, 50, 100, "All"]
+
             ],
+
 
             drawCallback:
                 function() {
 
                     $('#tableSkeleton')
                         .hide();
+
+                    $('#selectAll')
+                        .prop(
+                            'checked',
+                            false
+                        );
 
                     updateBulkDeleteButton();
 
@@ -3383,10 +3391,6 @@ $(function () {
     }
 
 
-    /* =========================================================
-       LOAD STATISTICS
-    ========================================================== */
-
     updateDashboardStats();
 
 
@@ -3421,10 +3425,14 @@ $(function () {
                 )
                 .hide();
 
-            $('#ajaxModel')
-                .modal('show');
 
-            tagify.removeAllTags();
+            if (
+                tagify
+            ) {
+
+                tagify.removeAllTags();
+
+            }
 
 
             if (
@@ -3436,6 +3444,10 @@ $(function () {
                 editorInstance.setData('');
 
             }
+
+
+            $('#ajaxModel')
+                .modal('show');
 
         }
     );
@@ -3457,7 +3469,6 @@ $(function () {
             $.get(
                 "/products/" + id,
                 function(data) {
-
 
                     $('.show-name')
                         .text(
@@ -3495,10 +3506,26 @@ $(function () {
                         );
 
 
-                    var tags =
+                    var tags = '';
+
+
+                    if (
+                        Array.isArray(data.tags)
+                    ) {
+
+                        tags =
+                            data.tags.join(', ');
+
+                    }
+
+                    else if (
                         data.tags
-                            ? data.tags.join(', ')
-                            : '';
+                    ) {
+
+                        tags =
+                            data.tags;
+
+                    }
 
 
                     $('.show-tags')
@@ -3507,7 +3534,9 @@ $(function () {
                         );
 
 
-                    if (data.image) {
+                    if (
+                        data.image
+                    ) {
 
                         $('.show-image')
                             .attr(
@@ -3517,7 +3546,9 @@ $(function () {
                             )
                             .show();
 
-                    } else {
+                    }
+
+                    else {
 
                         $('.show-image')
                             .hide();
@@ -3525,7 +3556,9 @@ $(function () {
                     }
 
 
-                    if (data.file) {
+                    if (
+                        data.file
+                    ) {
 
                         $('.show-file')
                             .attr(
@@ -3535,7 +3568,9 @@ $(function () {
                             )
                             .show();
 
-                    } else {
+                    }
+
+                    else {
 
                         $('.show-file')
                             .hide();
@@ -3599,7 +3634,9 @@ $(function () {
                             data.detail || ''
                         );
 
-                    } else {
+                    }
+
+                    else {
 
                         $('#detail')
                             .val(
@@ -3639,7 +3676,9 @@ $(function () {
                         );
 
 
-                    if (data.image) {
+                    if (
+                        data.image
+                    ) {
 
                         $('#imagePreview')
                             .attr(
@@ -3649,7 +3688,9 @@ $(function () {
                             )
                             .show();
 
-                    } else {
+                    }
+
+                    else {
 
                         $('#imagePreview')
                             .hide();
@@ -3657,7 +3698,9 @@ $(function () {
                     }
 
 
-                    if (data.file) {
+                    if (
+                        data.file
+                    ) {
 
                         $('#existingFileName')
                             .text(
@@ -3667,7 +3710,9 @@ $(function () {
                                     .pop()
                             );
 
-                    } else {
+                    }
+
+                    else {
 
                         $('#existingFileName')
                             .text('');
@@ -3675,14 +3720,22 @@ $(function () {
                     }
 
 
-                    tagify.removeAllTags();
+                    if (
+                        tagify
+                    ) {
+
+                        tagify.removeAllTags();
 
 
-                    if (data.tags) {
+                        if (
+                            Array.isArray(data.tags)
+                        ) {
 
-                        tagify.addTags(
-                            data.tags
-                        );
+                            tagify.addTags(
+                                data.tags
+                            );
+
+                        }
 
                     }
 
@@ -3709,7 +3762,9 @@ $(function () {
                 this.files[0];
 
 
-            if (file) {
+            if (
+                file
+            ) {
 
                 var reader =
                     new FileReader();
@@ -3944,7 +3999,6 @@ $(function () {
                 success:
                     function(response) {
 
-
                         if (
                             response.success
                         ) {
@@ -3969,7 +4023,13 @@ $(function () {
                                 .val('');
 
 
-                            tagify.removeAllTags();
+                            if (
+                                tagify
+                            ) {
+
+                                tagify.removeAllTags();
+
+                            }
 
 
                             if (
@@ -3987,7 +4047,10 @@ $(function () {
                                 .hide();
 
 
-                            table.draw();
+                            table.ajax.reload(
+                                null,
+                                false
+                            );
 
 
                             updateDashboardStats();
@@ -4016,7 +4079,6 @@ $(function () {
                 error:
                     function(xhr) {
 
-
                         if (
                             xhr.status === 422
                         ) {
@@ -4041,11 +4103,15 @@ $(function () {
                                                 : errors[key];
 
 
-                                        if (el.length) {
+                                        if (
+                                            el.length
+                                        ) {
 
                                             el.text(msg);
 
-                                        } else {
+                                        }
+
+                                        else {
 
                                             toastr.error(
                                                 msg,
@@ -4132,7 +4198,7 @@ $(function () {
                     'Are you sure?',
 
                 text:
-                    "You won't be able to revert this!",
+                    "The product will be moved to trash.",
 
                 icon:
                     'warning',
@@ -4165,10 +4231,12 @@ $(function () {
                                 "/products/" + id,
 
                             success:
-                                function() {
+                                function(response) {
 
-
-                                    table.draw();
+                                    table.ajax.reload(
+                                        null,
+                                        false
+                                    );
 
 
                                     updateDashboardStats();
@@ -4183,7 +4251,7 @@ $(function () {
                                             'Deleted!',
 
                                         text:
-                                            'Product has been deleted.',
+                                            'Product has been moved to trash.',
 
                                         timer:
                                             1800,
@@ -4219,6 +4287,14 @@ $(function () {
 
     /* =========================================================
        STATUS TOGGLE
+       
+       IMPORTANT FIX:
+       Do NOT use:
+       route('products.toggleStatus')
+       
+       because the route requires {id}.
+       
+       We build the URL dynamically.
     ========================================================== */
 
     $('body').on(
@@ -4231,6 +4307,20 @@ $(function () {
 
             var id =
                 checkbox.data('id');
+
+
+            if (
+                !id
+            ) {
+
+                toastr.error(
+                    'Product ID is missing.',
+                    'Error'
+                );
+
+                return;
+
+            }
 
 
             checkbox.prop(
@@ -4249,10 +4339,18 @@ $(function () {
                 type:
                     "POST",
 
+                data: {
+
+                    status:
+                        checkbox.is(':checked')
+                            ? 'active'
+                            : 'inactive'
+
+                },
+
 
                 success:
                     function(response) {
-
 
                         if (
                             response.success
@@ -4265,6 +4363,12 @@ $(function () {
 
 
                             updateDashboardStats();
+
+
+                            table.ajax.reload(
+                                null,
+                                false
+                            );
 
                         }
 
@@ -4289,7 +4393,6 @@ $(function () {
 
                 error:
                     function(xhr) {
-
 
                         checkbox.prop(
                             'checked',
@@ -4375,7 +4478,6 @@ $(function () {
             }).then(
                 function(result) {
 
-
                     if (
                         !result.isConfirmed
                     ) {
@@ -4428,11 +4530,9 @@ $(function () {
                         success:
                             function(response) {
 
-
                                 if (
                                     response.success
                                 ) {
-
 
                                     table.ajax.reload(
                                         null,
@@ -4462,7 +4562,6 @@ $(function () {
 
                                     });
 
-
                                 }
 
                                 else {
@@ -4481,7 +4580,6 @@ $(function () {
 
                         error:
                             function(xhr) {
-
 
                                 var message =
                                     'Unable to duplicate the product.';
@@ -4524,7 +4622,6 @@ $(function () {
         '.inline-edit',
         function() {
 
-
             var element =
                 $(this);
 
@@ -4556,14 +4653,11 @@ $(function () {
                 element.html();
 
 
-            /* =================================================
-               CATEGORY
-            ================================================== */
+            /* CATEGORY */
 
             if (
                 field === 'category'
             ) {
-
 
                 var select =
                     $('<select>')
@@ -4664,7 +4758,6 @@ $(function () {
                     'change',
                     function() {
 
-
                         saveInlineEdit(
 
                             element,
@@ -4687,7 +4780,6 @@ $(function () {
                     'keydown',
                     function(e) {
 
-
                         if (
                             e.key === 'Escape'
                         ) {
@@ -4705,16 +4797,12 @@ $(function () {
                     }
                 );
 
-
             }
 
 
-            /* =================================================
-               NAME / BRAND
-            ================================================== */
+            /* NAME / BRAND */
 
             else {
-
 
                 var input =
                     $('<input>')
@@ -4737,14 +4825,12 @@ $(function () {
 
                 input.focus();
 
-
                 input.select();
 
 
                 input.on(
                     'keydown',
                     function(e) {
-
 
                         if (
                             e.key === 'Enter'
@@ -4792,10 +4878,8 @@ $(function () {
                     'blur',
                     function() {
 
-
                         setTimeout(
                             function() {
-
 
                                 if (
                                     element.find(
@@ -4818,7 +4902,6 @@ $(function () {
                                     );
 
                                 }
-
 
                             },
                             150
@@ -4845,7 +4928,6 @@ $(function () {
         originalHtml
     ) {
 
-
         if (
             element.hasClass(
                 'inline-edit-saving'
@@ -4865,7 +4947,6 @@ $(function () {
             field === 'name' &&
             value === ''
         ) {
-
 
             toastr.error(
                 'Product name cannot be empty.',
@@ -4916,11 +4997,9 @@ $(function () {
             success:
                 function(response) {
 
-
                     if (
                         response.success
                     ) {
-
 
                         var displayValue =
                             response.value ||
@@ -4945,11 +5024,9 @@ $(function () {
                             'Updated'
                         );
 
-
                     }
 
                     else {
-
 
                         element
                             .removeClass(
@@ -4973,7 +5050,6 @@ $(function () {
 
             error:
                 function(xhr) {
-
 
                     element
                         .removeClass(
@@ -5018,7 +5094,6 @@ $(function () {
     $('#bulkDelete').click(
         function() {
 
-
             var ids = [];
 
 
@@ -5049,7 +5124,7 @@ $(function () {
                     'Delete Selected Products?',
 
                 text:
-                    'All selected products will be permanently deleted.',
+                    'Selected products will be moved to trash.',
 
                 icon:
                     'warning',
@@ -5069,11 +5144,9 @@ $(function () {
             }).then(
                 function(result) {
 
-
                     if (
                         result.isConfirmed
                     ) {
-
 
                         $.ajax({
 
@@ -5092,10 +5165,12 @@ $(function () {
 
 
                             success:
-                                function() {
+                                function(response) {
 
-
-                                    table.draw();
+                                    table.ajax.reload(
+                                        null,
+                                        false
+                                    );
 
 
                                     updateDashboardStats();
@@ -5135,7 +5210,6 @@ $(function () {
 
                             error:
                                 function(xhr) {
-
 
                                     toastr.error(
                                         xhr.responseJSON?.message ||
@@ -5205,7 +5279,6 @@ $(function () {
     $('#printTable').click(
         function() {
 
-
             var printContents =
                 $('.data-table').clone();
 
@@ -5224,7 +5297,7 @@ $(function () {
                 '<title>Products</title>' +
 
                 '<link href="' +
-                'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css' +
+                'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' +
                 '" rel="stylesheet">' +
 
                 '</head>' +
@@ -5250,7 +5323,6 @@ $(function () {
 
             printWindow.document.close();
 
-
             printWindow.focus();
 
 
@@ -5275,7 +5347,6 @@ $(function () {
 
     $('#darkModeToggle').click(
         function() {
-
 
             $('body')
                 .toggleClass(
@@ -5325,7 +5396,6 @@ $(function () {
         ) === 'enabled'
     ) {
 
-
         $('body')
             .addClass(
                 'dark-mode'
@@ -5341,6 +5411,7 @@ $(function () {
 
 
 });
+
 </script>
 
 
