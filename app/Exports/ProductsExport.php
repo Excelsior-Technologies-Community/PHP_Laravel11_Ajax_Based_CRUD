@@ -11,17 +11,38 @@ class ProductsExport implements FromCollection, WithHeadings, WithMapping
 {
     public function collection()
     {
-        return Product::all();
+        return Product::query()
+            ->orderBy('id', 'desc')
+            ->get();
     }
 
     public function headings(): array
     {
-        return ['ID', 'Name', 'Detail', 'Category', 'Status', 'Brand', 'Expiry Date', 'Tags'];
+        return [
+            'ID',
+            'Name',
+            'Detail',
+            'Category',
+            'Status',
+            'Brand',
+            'Expiry Date',
+            'Tags'
+        ];
     }
 
     public function map($product): array
     {
-        $tags = $product->tags ? implode(', ', json_decode($product->tags, true)) : '';
+        $tags = '';
+
+        if ($product->tags) {
+
+            $decoded = json_decode($product->tags, true);
+
+            if (is_array($decoded)) {
+                $tags = implode(', ', $decoded);
+            }
+        }
+
         return [
             $product->id,
             $product->name,
@@ -29,8 +50,8 @@ class ProductsExport implements FromCollection, WithHeadings, WithMapping
             $product->category,
             $product->status,
             $product->brand,
-            $product->expiry_date,
-            $tags
+            optional($product->expiry_date)->format('Y-m-d'),
+            $tags,
         ];
     }
 }
